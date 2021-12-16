@@ -6,17 +6,17 @@ default_resources:
   partition: low
 
 bwa_mem:
-  threads: 10
+  threads: 30
   time: "8:00:00"
 
 fastp:
-  threads: 5
+  threads: 10
 
 vep:
-  threads: 10
+  threads: 30
 
 fastqc:
-  threads: 10
+  threads: 30
 
 mutect2_gvcf:
   time: "8:00:00"
@@ -25,7 +25,7 @@ mutect2:
   time: "8:00:00"
 
 gene_fuse:
-  threads: 4
+  threads: 16
 
 cnvkit_call:
-  threads: 8
+  threads: 32
