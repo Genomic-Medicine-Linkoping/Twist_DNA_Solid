@@ -21,6 +21,7 @@ REPORT = report.html
 
 RESULTS = \
 alignment \
+annotation \
 biomarker \
 cnv_sv \
 filtering \
@@ -29,8 +30,8 @@ prealignment \
 qc \
 results \
 snv_indels \
-genefuse.json \
-$(REPORT)
+genefuse.json 
+
 
 SAMPLE_DATA = \
 samples.tsv \
