@@ -1,0 +1,20 @@
+.cache
+.snakemake
+.config
+.java
+
+# Results/Intermediate files
+alignment
+biomarker
+cnv_sv
+filtering
+fusions
+prealignment
+qc
+results
+slurm
+snv_indels
+genefuse.json
+
+# Temporary files
+temp
