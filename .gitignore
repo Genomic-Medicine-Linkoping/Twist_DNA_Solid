@@ -15,6 +15,7 @@ qc
 results
 snv_indels
 genefuse.json
+LI_*
 
 # Temporary files
 temp
