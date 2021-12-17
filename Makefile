@@ -15,6 +15,8 @@ ARGS = --forceall
 .PHONY: \
 run \
 clean \
+collection \
+archive \
 help
 
 REPORT = report.html
@@ -52,6 +54,17 @@ run:
 ## clean: Remove all the latest results
 clean:
 	rm -rf $(RESULTS)
+
+## collection: Collect all results from the last run into own directory
+collection:
+	mkdir -p $(RESULTS_DIR)
+	mv $(RESULTS) $(RESULTS_DIR)
+	cp $(SAMPLE_DATA) $(RESULTS_DIR)
+
+## archive: Move to larger storage location and create a symbolic link to it
+archive:
+	mkdir -p $(STORAGE)
+	mv $(RESULTS_DIR) $(STORAGE)
 
 ## help: Show this message
 help:
