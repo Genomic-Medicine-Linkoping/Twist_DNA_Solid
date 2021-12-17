@@ -5,6 +5,7 @@
 
 # Results/Intermediate files
 alignment
+annotation
 biomarker
 cnv_sv
 filtering
@@ -12,7 +13,6 @@ fusions
 prealignment
 qc
 results
-slurm
 snv_indels
 genefuse.json
 
