@@ -10,7 +10,7 @@ bwa_mem:
   time: "8:00:00"
 
 fastp_pe:
-  threads: 5
+  threads: 10
 
 vep:
   threads: 30
@@ -28,7 +28,7 @@ gene_fuse:
   threads: 16
 
 cnvkit_call:
-  threads: 8
+  threads: 16
   
 vardict:
   time: "8:00:00"
