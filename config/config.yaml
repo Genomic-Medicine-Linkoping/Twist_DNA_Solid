@@ -24,7 +24,6 @@ reference:
   skip_chrs:
     - "chrM"
 
-
 bwa_mem:
   container: "docker://hydragenetics/bwa_mem:0.7.17"
   extra: "-R '@RG\\tID:{sample}\\tSM:{sample}\\tPL:illumina\\tPU:{sample}' -v 1 "
@@ -97,12 +96,6 @@ vep:
 
 calculate_seqrun_background:
   container: "docker://python:3.9.7-slim"
-
-bgzip_vcf:
-  container: "docker://hydragenetics/common:0.0.1"
-
-tabix_vcf:
-  container: "docker://hydragenetics/common:0.0.1"
 
 fastqc:
   container: "docker://hydragenetics/fastqc:0.11.9"
