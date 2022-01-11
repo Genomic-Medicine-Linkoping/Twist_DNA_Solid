@@ -49,11 +49,7 @@ MAIN_SMK = /home/lauri/Desktop/Twist_DNA_Solid/workflow/Snakefile
 ## run: Run the main pipeline
 run:
 	$(CONDA_ACTIVATE)
-	snakemake --cores $(CPUS) \
-	--use-singularity \
-	--singularity-args "--bind /home/lauri/ --bind /data/" \
-	-s $(MAIN_SMK) \
-	$(ARGS)
+	snakemake --cores $(CPUS) --use-singularity --singularity-args "--bind /home/lauri/ --bind /data/" -s $(MAIN_SMK) $(ARGS)
 
 ## clean: Remove all the latest results
 clean:
@@ -73,3 +69,9 @@ archive:
 ## help: Show this message
 help:
 	@grep '^##' ./Makefile
+
+## report: Make snakemake report
+report:
+	$(CONDA_ACTIVATE)
+	snakemake -j 1 --report $(REPORT) -s $(MAIN_SMK)
+
