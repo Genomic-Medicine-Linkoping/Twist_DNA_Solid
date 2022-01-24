@@ -42,7 +42,7 @@ fastp_pe:
 
 vardict:
   container: "docker://gmsuppsala/somatic:develop"
-  bed_columns: "-c 1 -S 2 -E 3 -g 4"
+  bed_columns: "-c 1 -S 3 -E 3 -g 4"
   allele_frequency_threshold: "0.01"
 
 mutect2:
@@ -109,7 +109,7 @@ picard_alignment_summary_metrics:
 picard_duplication_metrics:
   container: "docker://hydragenetics/picard:2.25.0"
 
-picard_hs_metrics:
+picard_collect_hs_metrics:
   container: "docker://hydragenetics/picard:2.25.0"
 
 picard_insert_size:
@@ -132,11 +132,11 @@ gene_fuse:
   container: "docker://hydragenetics/genefuse:0.6.1"
   genes: "/home/lauri/Desktop/Twist_DNA/DATA/druggable.hg19.csv"
 
-cnvkit_call:
+cnvkit_batch:
   container: "docker://gmsuppsala/somatic:develop"
   normal_reference: "/home/lauri/Desktop/Twist_DNA/DATA/cnvkit_Twist_PoN.cnn"
 
-cnvkit_call_loh:
+cnvkit_call:
   container: "docker://gmsuppsala/somatic:develop"
 
 cnvkit_vcf:
