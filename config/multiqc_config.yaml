@@ -1,0 +1,20 @@
+#decimalPoint_format: ','
+extra_fn_clean_exts: ##from this until end
+    - '-ready'
+    - '.duplication_metrics'
+    # For BC samples this rule is necessary
+    - type: regex
+      pattern: '_fastq[12]'
+    - type: regex
+      pattern: '_R[12]'
+# extra_fn_clean_trim:   #if found in beginning or end
+fn_ignore_dirs:
+  - "alignment"
+
+custom_content:
+  order:
+    - qc-stats
+    - cutadapt
+    - fastqc
+    - samtools
+    - picard
