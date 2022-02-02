@@ -57,7 +57,8 @@ run:
 
 ## clean: Remove all the latest results
 clean:
-	rm -rf $(RESULTS)
+	rm --verbose --recursive --force $(RESULTS)
+
 
 ## collection: Collect all results from the last run into own directory
 collection:
