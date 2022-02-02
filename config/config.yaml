@@ -24,53 +24,27 @@ reference:
   skip_chrs:
     - "chrM"
 
+bcftools_region_include_filter:
+  nocnv: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.noCNV.bed"
+  exon: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.Exon_only.bed"
+
 bwa_mem:
   container: "docker://hydragenetics/bwa_mem:0.7.17"
   extra: "-R '@RG\\tID:{sample}\\tSM:{sample}\\tPL:illumina\\tPU:{sample}' -v 1 "
 
-mark_duplicates:
-  container: "docker://hydragenetics/picard:2.25.0"
+calculate_seqrun_background:
+  container: "docker://python:3.9.7-slim"
 
-samtools_index:
-  container: "docker://hydragenetics/common:0.0.1"
-
-merge_bam:
-  container: "docker://hydragenetics/common:0.0.1"
-
-fastp_pe:
-  container: "docker://hydragenetics/fastp:0.20.1"
-
-vardict:
+cnvkit_batch:
   container: "docker://gmsuppsala/somatic:develop"
-  bed_columns: "-c 1 -S 2 -E 3 -g 4"
-  allele_frequency_threshold: "0.01"
+  normal_reference: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/PoN/cnvkit_26_normal.PoN.cnn"
+  method: "hybrid"
 
-mutect2:
-  container: "docker://hydragenetics/gatk4:4.1.9.0"
-
-mutect2_gvcf:
-  container: "docker://hydragenetics/gatk4:4.1.9.0"
-
-merge_vcf:
-  container: "docker://hydragenetics/common:0.0.1"
-
-merge_gvcf:
-  container: "docker://hydragenetics/common:0.0.1"
-
-bgzip_vcf:
-  container: "docker://hydragenetics/common:0.0.1"
-
-tabix_vcf:
-  container: "docker://hydragenetics/common:0.0.1"
+cnvkit_call:
+  container: "docker://gmsuppsala/somatic:develop"
 
 decompose:
   container: "docker://gmsuppsala/somatic:develop"
-
-normalize:
-  container: "docker://gmsuppsala/somatic:develop"
-
-sort_vcf:
-  container: "docker://hydragenetics/common:0.0.1"
 
 ensemble_vcf:
   container: "docker://gmsuppsala/somatic:develop"
@@ -79,72 +53,21 @@ ensemble_vcf:
     - mutect2
   sort_order: "vardict,mutect2"
 
-fix_af:
-  container: "docker://hydragenetics/common:0.0.1"
-
-freebayes:
-  container: "docker://gmsuppsala/somatic:develop"
-
-bed_split:
-  container: "docker://hydragenetics/common:0.0.1"
-
-vep:
-  container: "docker://hydragenetics/vep:105"
-  vep_cache:  "/data/Twist_DNA_Solid/VEP/"
-  mode: --offline --cache
-  extra: " --check_existing --pick --sift b --polyphen b --ccds --uniprot --hgvs --symbol --numbers --domains --regulatory --canonical --protein --biotype --uniprot --tsl --appris --gene_phenotype --af --af_1kg --af_gnomad --max_af --pubmed --variant_class "
-
-calculate_seqrun_background:
-  container: "docker://python:3.9.7-slim"
+fastp_pe:
+  container: "docker://hydragenetics/fastp:0.20.1"
 
 fastqc:
   container: "docker://hydragenetics/fastqc:0.11.9"
 
-samtools_stats:
-  container: "docker://hydragenetics/common:0.0.1"
-
-picard_alignment_summary_metrics:
-  container: "docker://hydragenetics/picard:2.25.0"
-
-picard_duplication_metrics:
-  container: "docker://hydragenetics/picard:2.25.0"
-
-picard_collect_hs_metrics:
-  container: "docker://hydragenetics/picard:2.25.0"
-
-picard_insert_size:
-  container: "docker://hydragenetics/picard:2.25.0"
-
-hotspot_info:
-  container: "docker://hydragenetics/common:0.0.1"
-
-msisensor_pro:
-  container: "docker://hydragenetics/msisensor_pro:1.1.a"
-  PoN: "/home/lauri/Desktop/Twist_DNA/DATA/Msisensor_pro_reference.list_baseline"
-
-tmb:
-  container: "docker://hydragenetics/common:0.0.1"
-
-hrd:
-  container: "docker://hydragenetics/common:0.0.1"
-
-gene_fuse:
-  container: "docker://hydragenetics/genefuse:0.6.1"
-  genes: "/home/lauri/Desktop/Twist_DNA/DATA/druggable.hg19.csv"
-
-cnvkit_batch:
-  container: "docker://gmsuppsala/somatic:develop"
-  normal_reference: "/home/lauri/Desktop/Twist_DNA/DATA/cnvkit_Twist_PoN.cnn"
-  method: "hybrid"
-
-cnvkit_call:
+freebayes:
   container: "docker://gmsuppsala/somatic:develop"
 
-cnvkit_vcf:
-  container: "docker://hydragenetics/common:0.0.1"
+gatk_cnv_call_copy_ratio_segments:
+  container: "docker://gmsuppsala/somatic:develop"
 
-germline_vcf:
-  container: "docker://ensemblorg/ensembl-vep:release_99.0"
+gatk_cnv_collect_allelic_counts:
+  container: "docker://gmsuppsala/somatic:develop"
+  SNP_interval: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/gnomad_SNP_0.001_target.annotated.interval_list"
 
 gatk_cnv_collect_read_counts:
   container: "docker://gmsuppsala/somatic:develop"
@@ -153,24 +76,22 @@ gatk_cnv_denoise_read_counts:
   container: "docker://gmsuppsala/somatic:develop"
   normal_reference: "/home/lauri/Desktop/Twist_DNA/DATA/GATK_Twist_PoN.hdf5"
 
-gatk_cnv_collect_allelic_counts:
-  container: "docker://gmsuppsala/somatic:develop"
-  SNP_interval: "/home/lauri/Desktop/Twist_DNA/DATA/gnomad_SNP_0.001_target.annotated.interval_list"
-
 gatk_cnv_model_segments:
   container: "docker://gmsuppsala/somatic:develop"
 
-gatk_cnv_call_copy_ratio_segments:
-  container: "docker://gmsuppsala/somatic:develop"
+gene_fuse:
+  container: "docker://hydragenetics/genefuse:0.6.1"
+  genes: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/gene_fuse/cancer.hg19.csv"
 
-gatk_cnv_vcf:
-  container: "docker://hydragenetics/common:0.0.1"
+germline_vcf:
+  container: "docker://hydragenetics/vep:105"
 
-svdb_merge:
-  container: "docker://hydragenetics/svdb:2.5.0"
-  cnv_callers:
-    - "cnvkit"
-    - "gatk_cnv"
+mark_duplicates:
+  container: "docker://hydragenetics/picard:2.25.0"
+
+msisensor_pro:
+  container: "docker://hydragenetics/msisensor_pro:1.1.a"
+  PoN: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/PoN/Msisensor_pro_reference_26_normal.list_baseline"
 
 multiqc:
   container: "docker://hydragenetics/multiqc:1.11"
@@ -182,3 +103,41 @@ multiqc:
     - "qc/fastqc/{sample}_{type}_fastq2_fastqc.zip"
     - "qc/picard_duplication_metrics/{sample}_{type}.duplication_metrics.txt"
     - "qc/samtools_stats/{sample}_{type}.samtools-stats.txt"
+
+mutect2:
+  container: "docker://hydragenetics/gatk4:4.1.9.0"
+
+mutect2_gvcf:
+  container: "docker://hydragenetics/gatk4:4.1.9.0"
+
+normalize:
+  container: "docker://gmsuppsala/somatic:develop"
+
+picard_alignment_summary_metrics:
+  container: "docker://hydragenetics/picard:2.25.0"
+
+picard_collect_hs_metrics:
+  container: "docker://hydragenetics/picard:2.25.0"
+
+picard_duplication_metrics:
+  container: "docker://hydragenetics/picard:2.25.0"
+
+picard_insert_size:
+  container: "docker://hydragenetics/picard:2.25.0"
+
+svdb_merge:
+  container: "docker://hydragenetics/svdb:2.5.0"
+  cnv_callers:
+    - "cnvkit"
+    - "gatk_cnv"
+
+vardict:
+  container: "docker://gmsuppsala/somatic:develop"
+  bed_columns: "-c 1 -S 2 -E 3 -g 4"
+  allele_frequency_threshold: "0.01"
+
+vep:
+  container: "docker://hydragenetics/vep:105"
+  vep_cache:  "/data/ref_genomes/VEP/"
+  mode: --offline --cache
+  extra: " --check_existing --pick --sift b --polyphen b --ccds --uniprot --hgvs --symbol --numbers --domains --regulatory --canonical --protein --biotype --uniprot --tsl --appris --gene_phenotype --af --af_1kg --af_gnomad --max_af --pubmed --variant_class "
