@@ -11,8 +11,8 @@ include: "rules/common.smk"
 include: "rules/result_files.smk"
 
 rule all:
-    input:
-        unpack(compile_output_list),
+   input:
+      unpack(compile_output_list),
 
 report: "report/workflow.rst"
 
