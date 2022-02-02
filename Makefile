@@ -74,7 +74,7 @@ collection:
 ## archive: Move to larger storage location and create a symbolic link to it
 archive:
 	mkdir -p $(STORAGE)
-	mv $(RESULTS_DIR) $(STORAGE)
+	mv --verbose $(RESULTS_DIR) $(STORAGE)
 
 ## help: Show this message
 help:
