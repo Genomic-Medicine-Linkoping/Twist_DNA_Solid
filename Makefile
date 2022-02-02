@@ -32,7 +32,8 @@ prealignment \
 qc \
 results \
 snv_indels \
-genefuse.json 
+genefuse.json \
+$(REPORT)
 
 
 SAMPLE_DATA = \
@@ -59,6 +60,10 @@ run:
 clean:
 	rm --verbose --recursive --force $(RESULTS)
 
+## report: Make snakemake report
+report:
+	$(CONDA_ACTIVATE)
+	snakemake -j 1 --report $(REPORT) -s $(MAIN_SMK)
 
 ## collection: Collect all results from the last run into own directory
 collection:
@@ -74,9 +79,3 @@ archive:
 ## help: Show this message
 help:
 	@grep '^##' ./Makefile
-
-## report: Make snakemake report
-report:
-	$(CONDA_ACTIVATE)
-	snakemake -j 1 --report $(REPORT) -s $(MAIN_SMK)
-
