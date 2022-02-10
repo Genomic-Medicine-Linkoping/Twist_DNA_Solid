@@ -71,7 +71,7 @@ rule copy_filtered_vcf:
 
 rule copy_bcftools_regionfilter1:
     input:
-        "filtering/add_multi_snv_in_codon/{sample}_{type}.codon_snvs.sorted.included.nocnv.vcf.gz",
+        "filtering/add_multi_snv_in_codon/{sample}_{type}.codon_snvs.sorted.include.nocnv.vcf.gz",
     output:
         "results/dna/vcf/{sample}_{type}.ensembled.vep_annotated.filtered.codon_snvs.nocnv.vcf.gz",
     shell:
@@ -80,7 +80,7 @@ rule copy_bcftools_regionfilter1:
 
 rule copy_bcftools_regionfilter2:
     input:
-        "filtering/add_multi_snv_in_codon/{sample}_{type}.codon_snvs.sorted.included.exon.vcf.gz",
+        "filtering/add_multi_snv_in_codon/{sample}_{type}.codon_snvs.sorted.include.exon.vcf.gz",
     output:
         "results/dna/vcf/{sample}_{type}.ensembled.vep_annotated.filtered.codon_snvs.exon_only.vcf.gz",
     shell:
@@ -137,15 +137,6 @@ rule copy_samtools_stats:
         "qc/samtools_stats/{sample}_{type}.samtools-stats.txt",
     output:
         "results/dna/qc/{sample}_{type}.samtools-stats.txt",
-    shell:
-        "cp {input} {output}"
-
-
-rule copy_hotspot_info:
-    input:
-        "qc/hotspot_info/{sample}_{type}.hotspot_info.tsv",
-    output:
-        "results/dna/hotspot_info/{sample}_{type}.hotspot_info.tsv",
     shell:
         "cp {input} {output}"
 
