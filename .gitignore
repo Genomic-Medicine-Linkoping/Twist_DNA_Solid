@@ -20,3 +20,9 @@ BC_*
 
 # Temporary files
 temp
+
+# venv
+hydra
+
+# Modules that we're testing
+parabricks
