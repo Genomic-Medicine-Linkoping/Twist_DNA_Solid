@@ -13,6 +13,7 @@ CPUS = 92
 ARGS = --forceall
 
 .PHONY: \
+create_inputs \
 run \
 clean \
 collection \
@@ -41,11 +42,16 @@ samples.tsv \
 units.tsv
 
 # In this directory is gathered all results when you run command make archive
-RESULTS_DIR = LI_VAL_1-8
+FASTQ_INPUT_DIR = /data/bcl2fastq/results/GMS_560_VAL_01-40/211203_NB501689_0228_AHV3GFBGXK/Data/Intensities/BaseCalls
 
 STORAGE = /data/Twist_DNA_Solid/results
 
 MAIN_SMK = /home/lauri/Desktop/Twist_DNA_Solid/workflow/Snakefile
+
+## create_inputs:
+create_inputs:
+	$(CONDA_ACTIVATE)
+	hydra-genetics create-input-files -d $(FASTQ_INPUT_DIR)
 
 ## run: Run the main pipeline
 run:
