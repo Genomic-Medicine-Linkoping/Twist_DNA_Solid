@@ -73,6 +73,10 @@ def compile_output_list(wildcards):
             ".cnvkit.vcf",
             ".merged.vcf",
         ],
+        "results/dna/bam": [
+            ".bam.bai", 
+            ".bam"
+        ],
     }
     output_files = [
         "%s/%s_%s%s" % (prefix, sample, unit_type, suffix)
