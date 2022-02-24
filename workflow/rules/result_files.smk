@@ -98,7 +98,7 @@ rule copy_fastqc:
 
 rule copy_picard_duplication_metrics:
     input:
-        "qc/picard_collect_duplication_metrics/{sample}_{type}.duplication_metrics.txt",
+        "qc/picard_duplication_metrics/{sample}_{type}.duplication_metrics.txt",
     output:
         "results/dna/qc/{sample}_{type}.duplication_metrics.txt",
     shell:
@@ -107,7 +107,7 @@ rule copy_picard_duplication_metrics:
 
 rule copy_picard_alignment_summary_metrics:
     input:
-        "qc/picard_collect_alignment_summary_metrics/{sample}_{type}.alignment_summary_metrics.txt",
+        "qc/picard_alignment_summary_metrics/{sample}_{type}.alignment_summary_metrics.txt",
     output:
         "results/dna/qc/{sample}_{type}.alignment_summary_metrics.txt",
     shell:
@@ -125,7 +125,7 @@ rule copy_picard_collect_hs_metrics:
 
 rule copy_picard_insert_size:
     input:
-        "qc/picard_collect_insert_size_metrics/{sample}_{type}.insert_size_metrics.txt",
+        "qc/picard_insert_size/{sample}_{type}.insert_size_metrics.txt",
     output:
         "results/dna/qc/{sample}_{type}.insert_size_metrics.txt",
     shell:

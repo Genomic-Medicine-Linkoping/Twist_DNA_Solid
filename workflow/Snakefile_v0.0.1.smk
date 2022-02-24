@@ -69,3 +69,5 @@ module cnv_sv:
    config: config
 
 use rule * from cnv_sv as cnv_sv_*
+
+ruleorder: copy_bai > alignment_samtools_index
