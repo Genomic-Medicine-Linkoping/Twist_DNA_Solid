@@ -57,6 +57,11 @@ run:
 	-s $(MAIN_SMK) \
 	$(ARGS)
 
+## create_inputs: Create input metadata files based on files residing in a given fastq-file directory
+create_inputs:
+	$(CONDA_ACTIVATE)
+	hydra-genetics create-input-files -d $(FASTQ_INPUT_DIR)
+
 ## clean: Remove all the latest results
 clean:
 	rm --verbose --recursive --force $(RESULTS)
