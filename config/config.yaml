@@ -4,7 +4,7 @@ units: "units.tsv"
 
 default_container: "docker://hydragenetics/common:0.0.1"
 
-trimmer_software: "fastp"
+trimmer_software: "fastp_pe"
 
 reference:
   background: "/data/Twist_DNA_Solid/PoN/26_normal_samples/background_panel_26_normal.tsv"
