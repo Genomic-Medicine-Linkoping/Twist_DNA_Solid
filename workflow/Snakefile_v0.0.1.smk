@@ -11,8 +11,8 @@ include: "rules/common.smk"
 include: "rules/result_files.smk"
 
 rule all:
-    input:
-        unpack(compile_output_list),
+   input:
+      unpack(compile_output_list),
 
 report: "report/workflow.rst"
 
@@ -47,7 +47,7 @@ module filtering:
 use rule * from filtering as filtering_*
 
 module qc:
-   snakefile: github("hydra-genetics/qc", path="workflow/Snakefile", tag="4ec562d")
+   snakefile: github("hydra-genetics/qc", path="workflow/Snakefile", tag="1844cc3") # Latest on: 2/3 22
    config: config
 
 use rule * from qc as qc_*
