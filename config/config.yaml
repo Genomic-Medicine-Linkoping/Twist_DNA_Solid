@@ -7,8 +7,8 @@ default_container: "docker://hydragenetics/common:0.1.0"
 trimmer_software: "fastp_pe"
 
 reference:
-  background: "/data/Twist_DNA_Solid/PoN/26_normal_samples/background_panel_26_normal.tsv"
-  artifacts: "/data/Twist_DNA_Solid/PoN/26_normal_samples/artifact_panel_26_normal.tsv"
+  background: "/data/Twist_DNA_Solid/ref/26_normal_samples/background_panel_26_normal.tsv"
+  artifacts: "/data/Twist_DNA_Solid/ref/26_normal_samples/artifact_panel_26_normal.tsv"
   fasta: "/data/Twist_DNA/BWA_0.7.10_refseq/hg19.with.mt.fasta"
   dict: "/data/Twist_DNA/BWA_0.7.10_refseq/hg19.with.mt.dict"
   amb: "/data/Twist_DNA/BWA_0.7.10_refseq/hg19.with.mt.amb"
@@ -17,19 +17,16 @@ reference:
   fai: "/data/Twist_DNA/BWA_0.7.10_refseq/hg19.with.mt.fai"
   pac: "/data/Twist_DNA/BWA_0.7.10_refseq/hg19.with.mt.pac"
   sa: "/data/Twist_DNA/BWA_0.7.10_refseq/hg19.with.mt.sa"
-  design_bed: "/data/Twist_DNA_Solid/PoN/26_normal_samples/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.bed"
-  design_intervals: "/data/Twist_DNA_Solid/PoN/26_normal_samples/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.interval_list"
-  design_intervals_gatk_cnv: "/data/Twist_DNA_Solid/PoN/26_normal_samples/pool1_pool2_nochr_3c.sort.merged.padded20.hg19.210311.met.annotated.bed.preprocessed.interval_list"
-  hotspots: "/home/lauri/Desktop/Twist_DNA/DATA/Hotspots_combined.csv"
+  design_bed: "/data/Twist_DNA_Solid/ref/26_normal_samples/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.bed"
+  design_intervals: "/data/Twist_DNA_Solid/ref/26_normal_samples/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.interval_list"
+  design_intervals_gatk_cnv: "/data/Twist_DNA_Solid/ref/26_normal_samples/pool1_pool2_nochr_3c.sort.merged.padded20.hg19.210311.met.annotated.bed.preprocessed.interval_list"
+  hotspots: "/data/Twist_DNA_Solid/ref/Hotspots_combined.csv"
   skip_chrs:
     - "chrM"
 
 bcftools_filter_include_region:
-  # Looks like there is a change in these two files TODO: Request newest versions of these
-  # nocnv: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.noCNV.MYD88.bed"
-  # exon: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.Exon_only.MYD88.bed"
-  nocnv: "/data/Twist_DNA_Solid/PoN/26_normal_samples/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.noCNV.bed"
-  exon: "/data/Twist_DNA_Solid/PoN/26_normal_samples/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.Exon_only.bed"
+  nocnv: "/data/Twist_DNA_Solid/ref/26_normal_samples/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.noCNV.MYD88.bed"
+  exon: "/data/Twist_DNA_Solid/ref/26_normal_samples/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.Exon_only.MYD88.bed"
 
 bwa_mem:
   container: "docker://hydragenetics/bwa_mem:0.7.17"
@@ -40,7 +37,7 @@ calculate_seqrun_background:
 
 cnvkit_batch:
   container: "docker://gmsuppsala/somatic:develop"
-  normal_reference: "/data/Twist_DNA_Solid/PoN/26_normal_samples/cnvkit_26_normal.PoN.cnn"
+  normal_reference: "/data/Twist_DNA_Solid/ref/26_normal_samples/cnvkit_26_normal.PoN.cnn"
   method: "hybrid"
 
 cnvkit_call:
@@ -70,21 +67,21 @@ gatk_cnv_call_copy_ratio_segments:
 
 gatk_cnv_collect_allelic_counts:
   container: "docker://gmsuppsala/somatic:develop"
-  SNP_interval: "/data/Twist_DNA_Solid/PoN/26_normal_samples/gnomad_SNP_0.001_target.annotated.interval_list"
+  SNP_interval: "/data/Twist_DNA_Solid/ref/26_normal_samples/gnomad_SNP_0.001_target.annotated.interval_list"
 
 gatk_cnv_collect_read_counts:
   container: "docker://gmsuppsala/somatic:develop"
 
 gatk_cnv_denoise_read_counts:
   container: "docker://gmsuppsala/somatic:develop"
-  normal_reference: "/data/Twist_DNA_Solid/PoN/26_normal_samples/gatk_cnv_26_normal.hdf5"
+  normal_reference: "/data/Twist_DNA_Solid/ref/26_normal_samples/gatk_cnv_26_normal.hdf5"
 
 gatk_cnv_model_segments:
   container: "docker://gmsuppsala/somatic:develop"
 
 gene_fuse:
   container: "docker://hydragenetics/genefuse:0.6.1"
-  genes: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/gene_fuse/druggable.expanded.hg19.csv"
+  genes: "/data/Twist_DNA_Solid/ref/26_normal_samples/druggable.expanded.hg19.csv"
 
 germline_vcf:
   container: "docker://hydragenetics/vep:105"
@@ -93,7 +90,7 @@ hard_filter_vcf:
   filter_config: "config_hard_filter.yaml"
 
 hotspot_report:
-  hotspot_mutations: "/home/lauri/Desktop/Twist_DNA/DATA/Hotspots_combined.csv"
+  hotspot_mutations: "/data/Twist_DNA_Solid/ref/Hotspots_combined.csv"
   report_config: "config/hotspot_report.yaml"
   chr_translation_file: "config/reference.hg19.Info"
   levels:
@@ -109,7 +106,7 @@ mosdepth_bed:
 
 msisensor_pro:
   container: "docker://hydragenetics/msisensor_pro:1.1.a"
-  PoN: "/data/Twist_DNA_Solid/PoN/26_normal_samples/Msisensor_pro_reference_26_normal.list_baseline"
+  PoN: "/data/Twist_DNA_Solid/ref/26_normal_samples/Msisensor_pro_reference_26_normal.list_baseline"
 
 multiqc:
   container: "docker://hydragenetics/multiqc:1.11"
