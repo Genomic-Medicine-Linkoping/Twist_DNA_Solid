@@ -40,6 +40,6 @@ rule hotspot_report:
     conda:
         "../envs/hotspot_report.yaml"
     message:
-       "{rule}: Do stuff on twist_dna_solid_uppsala/{rule}/{wildcards.sample}_{wildcards.type}.input"
+        "{rule}: Do stuff on twist_dna_solid_uppsala/{rule}/{wildcards.sample}_{wildcards.type}.input"
     script:
         "../scripts/hotspot_report.py"
