@@ -65,7 +65,14 @@ run:
 ## create_inputs: Create input metadata files based on files residing in a given fastq-file directory
 create_inputs:
 	$(CONDA_ACTIVATE)
-	hydra-genetics create-input-files -d $(FASTQ_INPUT_DIR)
+	hydra-genetics create-input-files \
+	-d $(FASTQ_INPUT_DIR) \
+	--force
+
+## hydra_help: Produce help message for hydra-genetics utility
+hydra_help:
+	$(CONDA_ACTIVATE)
+	hydra-genetics create-input-files --help
 
 ## clean: Remove all the latest results
 clean:
