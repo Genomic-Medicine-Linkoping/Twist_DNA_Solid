@@ -55,6 +55,7 @@ MAIN_SMK = /home/lauri/Desktop/Twist_DNA_Solid/workflow/Snakefile
 ## run: Run the main pipeline
 run:
 	$(CONDA_ACTIVATE)
+	export SINGULARITY_LOCALCACHEDIR=/data/Twist_DNA_Solid/cache_dir
 	snakemake --cores $(CPUS) \
 	--use-singularity \
 	--singularity-args "--bind /home/lauri/ --bind /data/" \
