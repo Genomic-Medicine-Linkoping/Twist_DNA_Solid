@@ -81,7 +81,7 @@ gatk_cnv_model_segments:
 
 gene_fuse:
   container: "docker://hydragenetics/genefuse:0.6.1"
-  genes: "/data/Twist_DNA_Solid/ref/26_normal_samples/druggable.expanded.hg19.csv"
+  genes: "/data/Twist_DNA_Solid/ref/druggable.expanded.hg19.csv"
 
 germline_vcf:
   container: "docker://hydragenetics/vep:105"
