@@ -34,7 +34,7 @@ qc \
 results \
 snv_indels \
 genefuse.json \
-$(REPORT)
+#$(REPORT)
 
 
 SAMPLE_DATA = \
@@ -42,11 +42,15 @@ samples.tsv \
 units.tsv
 
 # In this directory is gathered all results when you run command make archive
-FASTQ_INPUT_DIR = /data/bcl2fastq/results/GMS_560_VAL_01-40/211203_NB501689_0228_AHV3GFBGXK/Data/Intensities/BaseCalls
+RESULTS_DIR = BC26
+# FASTQ_INPUT_DIR = /data/bcl2fastq/results/BC/220308_NB501689_0250_AHL7MJBGXL/Data/Intensities/BaseCalls
+# FASTQ_INPUT_DIR = /data/bcl2fastq/results/BC/220124_NB501689_0243_AHC7GMBGXL/Data/Intensities/BaseCalls
+FASTQ_INPUT_DIR = /data/Twist_DNA_Solid/temp/BC/BC26
 
 STORAGE = /data/Twist_DNA_Solid/results
 
-MAIN_SMK = /home/lauri/Desktop/Twist_DNA_Solid/workflow/Snakefile_v0.0.1.smk
+#MAIN_SMK = /home/lauri/Desktop/Twist_DNA_Solid/workflow/Snakefile_v0.0.1.smk
+MAIN_SMK = /home/lauri/Desktop/Twist_DNA_Solid/workflow/Snakefile
 
 ## run: Run the main pipeline
 run:
