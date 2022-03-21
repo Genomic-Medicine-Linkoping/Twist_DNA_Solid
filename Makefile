@@ -10,7 +10,7 @@ CURRENT_CONDA_ENV_NAME = Twist_DNA_Solid
 CONDA_ACTIVATE = source $$(conda info --base)/etc/profile.d/conda.sh ; conda activate ; conda activate $(CURRENT_CONDA_ENV_NAME)
 
 CPUS = 92
-ARGS = --forceall
+ARGS = --rerun-incomplete --forceall
 
 .PHONY: \
 create_inputs \
