@@ -24,8 +24,8 @@ reference:
     - "chrM"
 
 bcftools_filter_include_region:
-  nocnv: "/data/Twist_DNA_Solid/ref/26_normal_samples/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.noCNV.MYD88.bed"
-  exon: "/data/Twist_DNA_Solid/ref/26_normal_samples/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.Exon_only.MYD88.bed"
+  nocnv: "/data/Twist_DNA_Solid/ref/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.noCNV.MYD88.bed"
+  exon: "/data/Twist_DNA_Solid/ref/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.Exon_only.MYD88.bed"
 
 bwa_mem:
   container: "docker://hydragenetics/bwa_mem:0.7.17"
