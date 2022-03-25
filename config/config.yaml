@@ -88,10 +88,13 @@ germline_vcf:
 hard_filter_vcf:
   filter_config: "config/config_hard_filter.yaml"
 
+hotspot_info:
+  hotspot_mutations: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/Hotspots_combined.csv"
+
 hotspot_report:
   hotspot_mutations: "/data/Twist_DNA_Solid/ref/Hotspots_combined.csv"
   report_config: "config/hotspot_report.yaml"
-  chr_translation_file: "config/reference.hg19.Info"
+  chr_translation_file: "config/hotspot_report.chr.translation.hg19"
   levels:
     - [300, "ok", "yes"]
     - [30, "low", "yes"]
