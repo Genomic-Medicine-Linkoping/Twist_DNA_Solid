@@ -7,7 +7,8 @@ MAKEFLAGS += --no-builtin-rules
 
 # The conda env definition file "requirements.yml" is located in the project's root directory
 CURRENT_CONDA_ENV_NAME = Twist_DNA_Solid
-CONDA_ACTIVATE = source $$(conda info --base)/etc/profile.d/conda.sh ; conda activate ; conda activate $(CURRENT_CONDA_ENV_NAME)
+ACTIVATE_CONDA = source $$(conda info --base)/etc/profile.d/conda.sh
+CONDA_ACTIVATE = $(ACTIVATE_CONDA) ; conda activate ; conda activate $(CURRENT_CONDA_ENV_NAME)
 
 CPUS = 92
 ARGS = --rerun-incomplete --forceall
@@ -68,6 +69,11 @@ create_inputs:
 	hydra-genetics create-input-files \
 	-d $(FASTQ_INPUT_DIR) \
 	--force
+
+## update_env: Update conda environment to the latest version defined by env.yml file
+update_env:
+	$(ACTIVATE_CONDA)
+	mamba env update --file env.yml
 
 ## hydra_help: Produce help message for hydra-genetics utility
 hydra_help:
