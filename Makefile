@@ -11,7 +11,7 @@ ACTIVATE_CONDA = source $$(conda info --base)/etc/profile.d/conda.sh
 CONDA_ACTIVATE = $(ACTIVATE_CONDA) ; conda activate ; conda activate $(CURRENT_CONDA_ENV_NAME)
 
 CPUS = 92
-ARGS = --rerun-incomplete --forceall
+ARGS = --forceall
 
 .PHONY: \
 create_inputs \
@@ -35,18 +35,20 @@ qc \
 results \
 snv_indels \
 genefuse.json \
-#$(REPORT)
+# $(REPORT)
 
 
 SAMPLE_DATA = \
 samples.tsv \
 units.tsv
 
+DIR = LI_VAL_09
+
 # In this directory is gathered all results when you run command make archive
-RESULTS_DIR = BC26
+RESULTS_DIR = $(DIR)
+# FASTQ_INPUT_DIR = /data/Twist_DNA_Solid/temp/BC/$(DIR)
 # FASTQ_INPUT_DIR = /data/bcl2fastq/results/BC/220308_NB501689_0250_AHL7MJBGXL/Data/Intensities/BaseCalls
-# FASTQ_INPUT_DIR = /data/bcl2fastq/results/BC/220124_NB501689_0243_AHC7GMBGXL/Data/Intensities/BaseCalls
-FASTQ_INPUT_DIR = /data/Twist_DNA_Solid/temp/BC/BC26
+FASTQ_INPUT_DIR = /data/Twist_DNA_Solid/temp/LI_VAL
 
 STORAGE = /data/Twist_DNA_Solid/results
 
