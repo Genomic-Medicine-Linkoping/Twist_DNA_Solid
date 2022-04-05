@@ -1,0 +1,2 @@
+sample	type	platform	barcode	machine	flowcell	lane	fastq1	fastq2	adapter
+GMS560-BC-24	T	Illumina	TGACACGATT+GCCTAGGAAG	@NB501689	HLCV5BGXL	L001	/data/Twist_DNA_Solid/temp/BC/BC_17-24/GMS560-BC-24_S8_R1_001.fastq.gz	/data/Twist_DNA_Solid/temp/BC/BC_17-24/GMS560-BC-24_S8_R2_001.fastq.gz	AGATCGGAAGAGCACACGTCTGAACTCCAGTCA,AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT

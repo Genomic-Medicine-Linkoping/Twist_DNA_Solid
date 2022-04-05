@@ -13,8 +13,8 @@ include: "rules/hotspot_report.smk"
 include: "rules/result_files.smk"
 
 rule all:
-    input:
-        unpack(compile_output_list),
+   input:
+      unpack(compile_output_list),
 
 ruleorder: snv_indels_tabix_vcf > misc_tabix
 ruleorder: snv_indels_mutect2 > misc_tabix

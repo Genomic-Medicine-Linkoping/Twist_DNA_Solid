@@ -1,0 +1,28 @@
+.cache
+.snakemake
+.config
+.java
+
+# Results/Intermediate files
+alignment
+annotation
+biomarker
+cnv_sv
+filtering
+fusions
+prealignment
+qc
+results
+snv_indels
+genefuse.json
+LI_*
+BC_*
+
+# Temporary files
+temp
+
+# venv
+hydra
+
+# Modules that we're testing
+parabricks
