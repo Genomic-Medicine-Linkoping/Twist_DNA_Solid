@@ -6,7 +6,7 @@ MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
 # The conda env definition file "requirements.yml" is located in the project's root directory
-CURRENT_CONDA_ENV_NAME = Twist_DNA_Solid
+CURRENT_CONDA_ENV_NAME = v0_1_5-alpha
 ACTIVATE_CONDA = source $$(conda info --base)/etc/profile.d/conda.sh
 CONDA_ACTIVATE = $(ACTIVATE_CONDA) ; conda activate ; conda activate $(CURRENT_CONDA_ENV_NAME)
 
