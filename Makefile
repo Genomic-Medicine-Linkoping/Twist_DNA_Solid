@@ -60,7 +60,7 @@ run:
 	export SINGULARITY_LOCALCACHEDIR=/data/Twist_DNA_Solid/cache_dir
 	snakemake --cores $(CPUS) \
 	--use-singularity \
-	--singularity-args "--bind /data/Twist_DNA_Solid/ref --bind /data/Twist_DNA --bind /data/Twist_DNA_Solid/VEP" \
+	--singularity-args "--bind /data/Twist_DNA_Solid/ref --bind /data/Twist_DNA --bind /data/Twist_DNA_Solid/VEP --bind /data" \
 	-s $(MAIN_SMK) \
 	$(ARGS)
 
