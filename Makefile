@@ -93,8 +93,8 @@ report:
 ## collection: Collect all results from the last run into own directory
 collection:
 	mkdir -p $(RESULTS_DIR)
-	mv $(RESULTS) $(RESULTS_DIR)
 	cp $(SAMPLE_DATA) $(RESULTS_DIR)
+	mv $(RESULTS) $(RESULTS_DIR)
 
 ## archive: Move to larger storage location and create a symbolic link to it
 archive:
