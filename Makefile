@@ -10,8 +10,8 @@ CURRENT_CONDA_ENV_NAME = v0_1_5-alpha
 ACTIVATE_CONDA = source $$(conda info --base)/etc/profile.d/conda.sh
 CONDA_ACTIVATE = $(ACTIVATE_CONDA) ; conda activate ; conda activate $(CURRENT_CONDA_ENV_NAME)
 
-CPUS = 90
-ARGS = --forceall
+CPUS = 92
+# ARGS = --forceall
 
 .PHONY: \
 create_inputs \
@@ -28,7 +28,6 @@ alignment \
 annotation \
 biomarker \
 cnv_sv \
-filtering \
 fusions \
 prealignment \
 qc \
@@ -42,7 +41,7 @@ SAMPLE_DATA = \
 samples.tsv \
 units.tsv
 
-DIR = LI_VAL_01-40
+DIR = 20220419_Twist_DNA_Solid_v0.1.5-alpha_VAL_01-40
 
 # In this directory is gathered all results when you run command make archive
 RESULTS_DIR = $(DIR)
@@ -50,7 +49,7 @@ RESULTS_DIR = $(DIR)
 # FASTQ_INPUT_DIR = /data/bcl2fastq/results/BC/220308_NB501689_0250_AHL7MJBGXL/Data/Intensities/BaseCalls
 FASTQ_INPUT_DIR = /data/Twist_DNA_Solid/temp/BC/BC_17-24
 
-STORAGE = /data/Twist_DNA_Solid/results
+STORAGE = /archive/Twist_DNA_Solid/results
 
 #MAIN_SMK = /home/lauri/Desktop/Twist_DNA_Solid/workflow/Snakefile_v0.0.1.smk
 MAIN_SMK = /data/Twist_DNA_Solid/Twist_DNA_Solid/workflow/Snakefile
