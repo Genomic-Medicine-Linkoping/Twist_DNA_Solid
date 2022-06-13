@@ -2,6 +2,8 @@
 .snakemake
 .config
 .java
+*.pyc
+venv
 
 # Results/Intermediate files
 alignment
@@ -23,6 +25,3 @@ temp
 
 # venv
 hydra
-
-# Modules that we're testing
-parabricks
