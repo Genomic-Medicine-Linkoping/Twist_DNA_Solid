@@ -1,0 +1,2 @@
+sample	type	platform	barcode	machine	flowcell	lane	fastq1	fastq2	adapter
+L001	T	Illumina	CTCTATTGAG+CACGCAAGTC	@NB501689	HL7LMBGXL	L001	/data/PDM-MBC/samples/L001_R1_001.fastq.gz	/data/PDM-MBC/samples/L001_R2_001.fastq.gz	AGATCGGAAGAGCACACGTCTGAACTCCAGTCA,AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT

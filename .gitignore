@@ -1,0 +1,29 @@
+.cache
+.snakemake
+.config
+.java
+*.pyc
+venv
+
+# Results/Intermediate files
+alignment
+annotation
+biomarker
+cnv_sv
+filtering
+fusions
+prealignment
+qc
+results
+snv_indels
+genefuse.json
+LI_*
+BC_*
+
+# Temporary files
+temp
+
+# venv
+hydra
+
+.vscode
