@@ -9,3 +9,15 @@
 *.swp
 
 venv
+
+temp
+.java
+.cache
+.vscode
+
+alignment
+fusions
+prealignment
+qc
+SeraSeq-Fusionv4-Pool1_R
+snv_indels

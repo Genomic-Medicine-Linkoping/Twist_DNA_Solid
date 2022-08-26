@@ -1,0 +1,2 @@
+sample	type	platform	barcode	machine	flowcell	lane	fastq1	fastq2	adapter
+SeraSeq-Fusionv4-Pool1	R	Illumina	ATCCAGAG+TAACGTCG	@NDX550220	HJHT5AFX2	L001	/data/Twist_Solid/RNA/input_data/input/SeraSeq-Fusionv4-Pool1_R1_001.fastq.gz	/data/Twist_Solid/RNA/input_data/input/SeraSeq-Fusionv4-Pool1_R2_001.fastq.gz	AGATCGGAAGAGCACACGTCTGAACTCCAGTCA,AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
