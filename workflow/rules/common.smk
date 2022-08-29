@@ -181,7 +181,8 @@ def compile_result_file_list():
             "in": ["qc/house_keeping_gene_coverage", ".house_keeping_gene_coverage.tsv"],
             "out": ["results/rna/qc", ".house_keeping_gene_coverage.tsv"],
         },
-        {"in": ["snv_indels/bcftools_id_snps", ".id_snps.vcf"], "out": ["results/rna/id_snps", ".id_snps.vcf"]},
+        # Commented out since rule bcftools_id_snps is currently broken
+        # {"in": ["snv_indels/bcftools_id_snps", ".id_snps.vcf"], "out": ["results/rna/id_snps", ".id_snps.vcf"]},
     ]
     output_files += [
         "%s/%s_%s%s" % (file_info["out"][0], sample, unit_type, file_info["out"][1])
