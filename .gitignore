@@ -21,3 +21,9 @@ prealignment
 qc
 SeraSeq-Fusionv4-Pool1_R
 snv_indels
+results
+logs
+bam_rna
+
+# venv location
+Twist_Solid
