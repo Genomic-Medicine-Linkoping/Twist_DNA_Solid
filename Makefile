@@ -55,6 +55,16 @@ MAIN_SMK = workflow/Snakefile
 
 all: run collection archive
 
+venv_run:
+	. Twist_Solid/bin/activate
+	export SINGULARITY_LOCALCACHEDIR=/data/Twist_Solid/cache_dir
+	snakemake --cores $(CPUS) \
+	--use-singularity \
+	--singularity-args "--cleanenv --bind /data/Twist_Solid/ --bind /data/reference_genomes/" \
+	-s $(MAIN_SMK) \
+	--configfile config/config.yaml \
+	$(ARGS)
+
 ## run: Run the main pipeline
 run:
 	$(CONDA_ACTIVATE)
