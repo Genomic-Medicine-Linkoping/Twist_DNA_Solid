@@ -48,7 +48,7 @@ units.tsv
 
 RESULTS_DIR = $(SAMPLE_NAME)
 
-FASTQ_INPUT_DIR = /data/Twist_Solid/RNA/input_data/input
+FASTQ_INPUT_DIR = /data/Twist_Solid/RNA/input_data/20220830_qiaseq_RNA
 STORAGE = /archive/GMS560_HRD_Lund/results
 
 MAIN_SMK = workflow/Snakefile
