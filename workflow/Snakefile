@@ -112,7 +112,7 @@ module qc:
         config
 
 
-# use rule * from qc as qc_*
+use rule * from qc as qc_*
 
 
 # use rule mosdepth from qc as qc_mosdepth with:
