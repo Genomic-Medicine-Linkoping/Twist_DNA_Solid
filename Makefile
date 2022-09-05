@@ -60,7 +60,7 @@ venv_run:
 	export SINGULARITY_LOCALCACHEDIR=/data/Twist_Solid/cache_dir
 	snakemake --cores $(CPUS) \
 	--use-singularity \
-	--singularity-args "--cleanenv --bind /data/Twist_Solid/ --bind /data/reference_genomes/" \
+	--singularity-args "--cleanenv --bind /archive/pgx/ --bind /data/Twist_Solid/ --bind /data/reference_genomes/" \
 	-s $(MAIN_SMK) \
 	--configfile config/config.yaml \
 	$(ARGS)
@@ -71,7 +71,7 @@ run:
 	export SINGULARITY_LOCALCACHEDIR=/data/Twist_Solid/cache_dir
 	snakemake --cores $(CPUS) \
 	--use-singularity \
-	--singularity-args "--cleanenv --bind /data/Twist_Solid/ --bind /data/reference_genomes/" \
+	--singularity-args "--cleanenv --bind /archive/pgx/ --bind /data/Twist_Solid/ --bind /data/reference_genomes/" \
 	-s $(MAIN_SMK) \
 	--configfile config/config.yaml \
 	$(ARGS)
