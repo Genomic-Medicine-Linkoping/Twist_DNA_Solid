@@ -105,11 +105,11 @@ use rule * from alignment as alignment_*
 # use rule * from filtering as filtering_*
 
 
-# module qc:
-#     snakefile:
-#         github("hydra-genetics/qc", path="workflow/Snakefile", tag="cd029ff")
-#     config:
-#         config
+module qc:
+    snakefile:
+        github("hydra-genetics/qc", path="workflow/Snakefile", tag="cd029ff")
+    config:
+        config
 
 
 # use rule * from qc as qc_*
