@@ -13,9 +13,11 @@ reference:
   fasta_rna: "/data/Twist_Solid/RNA/STAR-Fusion/GRCh37_gencode_v19_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/ref_genome.fa"
   dict: "/data/reference_genomes/hg19/BWA_0.7.10_refseq/hg19.with.mt.dict"
   fai: "/data/reference_genomes/hg19/BWA_0.7.10_refseq/hg19.with.mt.fai"
+  
   design_bed: "/archive/pgx/20220830_Pharmacology_validation_samples/Target_bases_covered_by_probes_RegionOrebroIan_Pharmacogenetic-Panel_1X_TE-98129065_hg38_211231104149.hglft_to_hg19.bed"
   design_intervals: "/archive/pgx/20220830_Pharmacology_validation_samples/Target_bases_covered_by_probes_RegionOrebroIan_Pharmacogenetic-Panel_1X_TE-98129065_hg38_211231104149.hglft_to_hg19.interval_list"
   design_intervals_gatk_cnv: "/archive/pgx/20220830_Pharmacology_validation_samples/Target_bases_covered_by_probes_RegionOrebroIan_Pharmacogenetic-Panel_1X_TE-98129065_hg38_211231104149.hglft_to_hg19.interval_list"
+  
   design_bed_rna: "/data/Twist_Solid/RNA/input_data/20220830_qiaseq_RNA_CJHS-14026Z-767_bed_file/QIAseq-RNA-FusionXP.CJHS-14026Z-767.primer-design.hg19.annotated.bed"
   design_intervals_rna: "/data/Twist_Solid/RNA/input_data/20220830_qiaseq_RNA_CJHS-14026Z-767_bed_file/QIAseq-RNA-FusionXP.CJHS-14026Z-767.primer-design.hg19.annotated.interval_list"
   skip_chrs:
