@@ -50,6 +50,7 @@ RESULTS_DIR = $(SAMPLE_NAME)
 
 FASTQ_INPUT_DIR = /archive/pgx/20220830_Pharmacology_validation_samples/fastq
 STORAGE = /archive/GMS560_HRD_Lund/results
+CONFIG = config/config.yaml
 
 MAIN_SMK = workflow/Snakefile
 
@@ -62,7 +63,7 @@ venv_run:
 	--use-singularity \
 	--singularity-args "--cleanenv --bind /archive/pgx/ --bind /data/Twist_Solid/ --bind /data/reference_genomes/" \
 	-s $(MAIN_SMK) \
-	--configfile config/config.yaml \
+	--configfile $(CONFIG) \
 	$(ARGS)
 
 ## run: Run the main pipeline
@@ -73,7 +74,7 @@ run:
 	--use-singularity \
 	--singularity-args "--cleanenv --bind /archive/pgx/ --bind /data/Twist_Solid/ --bind /data/reference_genomes/" \
 	-s $(MAIN_SMK) \
-	--configfile config/config.yaml \
+	--configfile $(CONFIG) \
 	$(ARGS)
 
 ## create_inputs: Create input metadata files based on files residing in a given fastq-file directory
@@ -102,7 +103,17 @@ clean:
 ## report: Make snakemake report
 report:
 	$(CONDA_ACTIVATE)
-	snakemake -j 1 --report $(REPORT) -s $(MAIN_SMK)
+	snakemake \
+	--cores $(CPUS) \
+	--report $(REPORT) \
+	--configfile $(CONFIG) \
+	-s $(MAIN_SMK)
+
+multiqc:
+	$(CONDA_ACTIVATE)
+	multiqc \
+	results \
+	--force
 
 ## collection: Collect all results from the last run into own directory
 collection:

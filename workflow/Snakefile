@@ -50,7 +50,7 @@ rule all:
 
 module prealignment:
     snakefile:
-        github("hydra-genetics/prealignment", path="workflow/Snakefile", tag="flowcell_constraint")
+        github("hydra-genetics/prealignment", path="workflow/Snakefile", tag="1525ccd")
     config:
         config
 
@@ -60,12 +60,22 @@ use rule * from prealignment as prealignment_*
 
 module alignment:
     snakefile:
-        github("hydra-genetics/alignment", path="workflow/Snakefile", tag="flowcell_constraint")
+        github("hydra-genetics/alignment", path="workflow/Snakefile", tag="972bef3")
     config:
         config
 
 
 use rule * from alignment as alignment_*
+
+
+module qc:
+    snakefile:
+        github("hydra-genetics/qc", path="workflow/Snakefile", tag="cd029ff")
+    config:
+        config
+
+
+use rule * from qc as qc_*
 
 
 # use rule samtools_sort from alignment as alignment_samtools_sort_rna with:
@@ -104,15 +114,6 @@ use rule * from alignment as alignment_*
 
 # use rule * from filtering as filtering_*
 
-
-module qc:
-    snakefile:
-        github("hydra-genetics/qc", path="workflow/Snakefile", tag="cd029ff")
-    config:
-        config
-
-
-use rule * from qc as qc_*
 
 
 # use rule mosdepth from qc as qc_mosdepth with:

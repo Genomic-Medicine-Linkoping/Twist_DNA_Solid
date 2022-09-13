@@ -11,8 +11,17 @@
 venv
 
 temp
+logs
 
 alignment
 prealignment
+bam_dna
+qc
+results
+multiqc_data
+data
+logs
+snvs
 
 create_inputs.log
+multiqc_report.html
