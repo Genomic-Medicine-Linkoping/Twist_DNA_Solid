@@ -101,7 +101,11 @@ clean:
 ## report: Make snakemake report
 report:
 	$(CONDA_ACTIVATE)
-	snakemake -j 1 --report $(REPORT) -s $(MAIN_SMK)
+	snakemake \
+	--cores $(CPUS) \
+	--report $(REPORT) \
+	-s $(MAIN_SMK) \
+	--configfile config/config.yaml
 
 ## collection: Collect all results from the last run into own directory
 collection:
