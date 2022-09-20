@@ -84,7 +84,7 @@ config_manta_t:
   container: "docker://marrip/manta:v1.6.0"
 
 exon_skipping:
-  design_bed: "/data/Twist_Solid/RNA/bed/Twist_RNA_Design5.annotated.bed"
+  design_bed: "/data/Twist_Solid/RNA/input_data/20220830_qiaseq_RNA_CJHS-14026Z-767_bed_file/QIAseq-RNA-FusionXP.CJHS-14026Z-767.primer-design.hg19.annotated.bed"
 
 fastp_pe:
   container: "docker://hydragenetics/fastp:0.20.1"
