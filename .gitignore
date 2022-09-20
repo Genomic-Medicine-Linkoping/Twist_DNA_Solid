@@ -9,3 +9,21 @@
 *.swp
 
 venv
+
+.cache
+.java
+temp
+
+fusions
+prealignment
+alignment
+qc
+snv_indels
+genefuse.json
+annotation
+bam_dna
+biomarker
+cnv_sv
+gvcf_dna
+logs
+results
