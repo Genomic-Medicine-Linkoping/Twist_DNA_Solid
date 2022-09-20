@@ -177,10 +177,10 @@ def compile_result_file_list():
         {"in": ["fusions/arriba_draw_fusion", ".pdf"], "out": ["results/rna/fusion", ".arriba.fusions.pdf"]},
         {"in": ["fusions/report_fusions", ".fusion_report.tsv"], "out": ["results/rna/fusion", ".fusion_report.tsv"]},
         {"in": ["fusions/exon_skipping", ".results.tsv"], "out": ["results/rna/fusion", ".exon_skipping.tsv"]},
-        {
-            "in": ["qc/house_keeping_gene_coverage", ".house_keeping_gene_coverage.tsv"],
-            "out": ["results/rna/qc", ".house_keeping_gene_coverage.tsv"],
-        },
+        # {
+        #     "in": ["qc/house_keeping_gene_coverage", ".house_keeping_gene_coverage.tsv"],
+        #     "out": ["results/rna/qc", ".house_keeping_gene_coverage.tsv"],
+        # },
         # Commented out since rule bcftools_id_snps is currently broken
         # {"in": ["snv_indels/bcftools_id_snps", ".id_snps.vcf"], "out": ["results/rna/id_snps", ".id_snps.vcf"]},
     ]
