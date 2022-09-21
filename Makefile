@@ -24,22 +24,22 @@ help
 
 REPORT = report.html
 
-SAMPLE_NAME = SeraSeq-Fusionv4-Pool1_R
+SAMPLE_NAME = LI-VAL-13_20_BRCA_EXONS
 
 RESULTS = \
-alignment \
 fusions \
 prealignment \
+alignment \
 qc \
 snv_indels \
+genefuse.json \
 annotation \
+bam_dna \
 biomarker \
 cnv_sv \
+gvcf_dna \
 results \
-logs \
-genefuse.json \
-$(SAMPLE_NAME) \
-# $(REPORT)
+logs
 
 
 SAMPLE_DATA = \
@@ -49,7 +49,7 @@ units.tsv
 RESULTS_DIR = $(SAMPLE_NAME)
 
 FASTQ_INPUT_DIR = /data/Twist_Solid/DNA/input
-STORAGE = /archive/GMS560_HRD_Lund/results
+STORAGE = /archive/Twist_Solid/DNA/results
 
 MAIN_SMK = workflow/Snakefile
 
@@ -107,7 +107,6 @@ collection:
 
 ## archive: Move to larger storage location and create a symbolic link to it
 archive:
-	mkdir -p $(STORAGE)
 	mv --verbose $(RESULTS_DIR) $(STORAGE)
 
 ## help: Show this message
