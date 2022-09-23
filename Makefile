@@ -23,8 +23,12 @@ archive \
 help
 
 REPORT = report.html
+MAIN_SMK = workflow/Snakefile
 
-SAMPLE_NAME = LI-VAL-13_20_BRCA_EXONS
+# These three variables should be adjusted/checked that they are correct before every run
+FASTQ_INPUT_DIR = /data/Twist_Solid/DNA/input
+STORAGE = /archive/Twist_Solid/DNA/results
+RESULTS_DIR = LI-VAL-13_20
 
 RESULTS = \
 fusions \
@@ -42,18 +46,7 @@ results \
 logs
 
 
-SAMPLE_DATA = \
-samples.tsv \
-units.tsv
-
-RESULTS_DIR = $(SAMPLE_NAME)
-
-FASTQ_INPUT_DIR = /data/Twist_Solid/DNA/input
-STORAGE = /archive/Twist_Solid/DNA/results
-
-MAIN_SMK = workflow/Snakefile
-
-all: run collection archive
+all: run collection
 
 ## run: Run the main pipeline
 run:
@@ -101,9 +94,7 @@ report:
 collection:
 	mkdir -p $(RESULTS_DIR)
 	mv $(RESULTS) $(RESULTS_DIR)
-	cp $(SAMPLE_DATA) $(RESULTS_DIR)
-	cp Makefile $(RESULTS_DIR)
-	cp env.yml $(RESULTS_DIR)
+	cp Makefile env.yml samples.tsv units.tsv config/config.yaml $(RESULTS_DIR)
 
 ## archive: Move to larger storage location and create a symbolic link to it
 archive:
