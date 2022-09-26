@@ -26,9 +26,10 @@ REPORT = report.html
 MAIN_SMK = workflow/Snakefile
 
 # These three variables should be adjusted/checked that they are correct before every run
-FASTQ_INPUT_DIR = /data/Twist_Solid/DNA/input
-STORAGE = /archive/Twist_Solid/DNA/results
-RESULTS_DIR = LI-VAL-13_20
+FASTQ_INPUT_DIR = /data/Twist_Solid/RNA/input_data/test_data
+SAMPLE_TYPE = R
+RESULTS_DIR = SeraSeqv4_220926
+STORAGE = /archive/Twist_Solid/RNA/results
 
 RESULTS = \
 fusions \
@@ -65,7 +66,7 @@ create_inputs:
 	hydra-genetics create-input-files \
 	-d $(FASTQ_INPUT_DIR) \
 	--force \
-	--sample-type T
+	--sample-type $(SAMPLE_TYPE)
 
 ## update_env: Update conda environment to the latest version defined by env.yml file
 update_env:
