@@ -23,37 +23,31 @@ archive \
 help
 
 REPORT = report.html
-
-SAMPLE_NAME = SeraSeq-Fusionv4-Pool1_R
-
-RESULTS = \
-alignment \
-fusions \
-prealignment \
-qc \
-snv_indels \
-annotation \
-biomarker \
-cnv_sv \
-results \
-logs \
-genefuse.json \
-$(SAMPLE_NAME) \
-# $(REPORT)
-
-
-SAMPLE_DATA = \
-samples.tsv \
-units.tsv
-
-RESULTS_DIR = $(SAMPLE_NAME)
-
-FASTQ_INPUT_DIR = /data/Twist_Solid/DNA/input
-STORAGE = /archive/GMS560_HRD_Lund/results
-
 MAIN_SMK = workflow/Snakefile
 
-all: run collection archive
+# These three variables should be adjusted/checked that they are correct before every run
+FASTQ_INPUT_DIR = /data/Twist_Solid/RNA/input_data/test_data
+SAMPLE_TYPE = R
+RESULTS_DIR = SeraSeqv4_220926
+STORAGE = /archive/Twist_Solid/RNA/results
+
+RESULTS = \
+fusions \
+prealignment \
+alignment \
+qc \
+snv_indels \
+genefuse.json \
+annotation \
+bam_dna \
+biomarker \
+cnv_sv \
+gvcf_dna \
+results \
+logs
+
+
+all: run collection
 
 ## run: Run the main pipeline
 run:
@@ -72,7 +66,7 @@ create_inputs:
 	hydra-genetics create-input-files \
 	-d $(FASTQ_INPUT_DIR) \
 	--force \
-	--sample-type T
+	--sample-type $(SAMPLE_TYPE)
 
 ## update_env: Update conda environment to the latest version defined by env.yml file
 update_env:
@@ -101,13 +95,10 @@ report:
 collection:
 	mkdir -p $(RESULTS_DIR)
 	mv $(RESULTS) $(RESULTS_DIR)
-	cp $(SAMPLE_DATA) $(RESULTS_DIR)
-	cp Makefile $(RESULTS_DIR)
-	cp env.yml $(RESULTS_DIR)
+	cp Makefile env.yml samples.tsv units.tsv config/config.yaml $(RESULTS_DIR)
 
 ## archive: Move to larger storage location and create a symbolic link to it
 archive:
-	mkdir -p $(STORAGE)
 	mv --verbose $(RESULTS_DIR) $(STORAGE)
 
 ## help: Show this message
