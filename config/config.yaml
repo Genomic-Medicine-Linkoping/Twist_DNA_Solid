@@ -7,41 +7,41 @@ default_container: "docker://hydragenetics/common:0.1.9"
 trimmer_software: "fastp_pe"
 
 reference:
-  background: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/Background/background_panel_nextseq_noUmea_27_dp500_af015.tsv"
-  artifacts: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/Artifact/artifact_panel_nextseq_36.tsv"
-  fasta: "/data/ref_genomes/hg19/bwa/BWA_0.7.10_refseq/hg19.with.mt.fasta"
-  fasta_rna: "/data/ref_data/star-fusion/GRCh37_gencode_v19_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/ref_genome.fa"
-  dict: "/data/ref_genomes/hg19/bwa/BWA_0.7.10_refseq/hg19.with.mt.dict"
-  fai: "/data/ref_genomes/hg19/bwa/BWA_0.7.10_refseq/hg19.with.mt.fai"
-  design_bed: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/pool1_pool2.sort.merged.padded20.cnv200.hg19.split_fusion_genes.reannotated.210608.bed"
-  design_intervals: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/pool1_pool2.sort.merged.padded20.cnv200.hg19.split_fusion_genes.MUC6_31_rm.exon_only.reannotated.210608.interval_list"
-  design_intervals_gatk_cnv: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.bed.preprocessed.interval_list"
-  design_bed_rna: "/projects/wp1/nobackup/ngs/utveckling/Twist_RNA_DATA/bed/Twist_RNA_Design5.annotated.bed"
-  design_intervals_rna: "/projects/wp1/nobackup/ngs/utveckling/Twist_RNA_DATA/bed/Twist_RNA_Design5.annotated.interval_list"
+  background: "/data/Twist_Solid/DNA/Background/background_panel_nextseq_noUmea_27_dp500_af015.tsv"
+  artifacts: "/data/Twist_Solid/DNA/Artifact/artifact_panel_nextseq_36.tsv"
+  fasta: "/data/reference_genomes/hg19/BWA_0.7.10_refseq/hg19.with.mt.fasta"
+  fasta_rna: "/data/Twist_Solid/RNA/STAR-Fusion/GRCh37_gencode_v19_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/ref_genome.fa"
+  dict: "/data/reference_genomes/hg19/BWA_0.7.10_refseq/hg19.with.mt.dict"
+  fai: "/data/reference_genomes/hg19/BWA_0.7.10_refseq/hg19.with.mt.fai"
+  design_bed: "/data/Twist_Solid/DNA/bed/pool1_pool2.sort.merged.padded20.cnv200.hg19.split_fusion_genes.reannotated.210608.bed"
+  design_intervals: "/data/Twist_Solid/DNA/bed/pool1_pool2.sort.merged.padded20.cnv200.hg19.split_fusion_genes.MUC6_31_rm.exon_only.reannotated.210608.interval_list"
+  design_intervals_gatk_cnv: "/data/Twist_Solid/DNA/bed/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.bed.preprocessed.interval_list"
+  design_bed_rna: "/data/Twist_Solid/RNA/bed/Twist_RNA_Design5.annotated.bed"
+  design_intervals_rna: "/data/Twist_Solid/RNA/bed/Twist_RNA_Design5.annotated.interval_list"
   skip_chrs:
     - "chrM"
 
 arriba:
-  assembly: "/data/ref_genomes/hg19/bwa/BWA_0.7.10_refseq/hg19.with.mt.fasta"
-  blacklist: "/data/ref_data/arriba/arriba_v2.3.0/database/blacklist_hg19_hs37d5_GRCh37_v2.3.0.tsv.gz"
+  assembly: "/data/reference_genomes/hg19/BWA_0.7.10_refseq/hg19.with.mt.fasta"
+  blacklist: "/data/Twist_Solid/RNA/arriba/blacklist_hg19_hs37d5_GRCh37_v2.3.0.tsv.gz"
   container: "docker://hydragenetics/arriba:2.3.0"
-  gtf: "/data/ref_genomes/hg19/gtf/hg19.refGene.gtf"
-  extra: "-p /data/ref_data/arriba/arriba_v2.3.0/database/protein_domains_hg19_hs37d5_GRCh37_v2.3.0.gff3 -k /data/ref_data/arriba/arriba_v2.3.0/database/known_fusions_hg19_hs37d5_GRCh37_v2.3.0.tsv.gz"
+  gtf: "/data/Twist_Solid/RNA/hg19.refGene.gtf"
+  extra: "-p /dataTwist_Solid/RNA/arriba/protein_domains_hg19_hs37d5_GRCh37_v2.3.0.gff3 -k /data/Twist_Solid/RNA/arriba/known_fusions_hg19_hs37d5_GRCh37_v2.3.0.tsv.gz"
 
 arriba_draw_fusion:
   container: "docker://hydragenetics/arriba:2.3.0"
-  cytobands: "/data/ref_data/arriba/arriba_v2.3.0/database/cytobands_hg19_hs37d5_GRCh37_v2.3.0.tsv"
-  gtf: "/data/ref_genomes/hg19/gtf/hg19.refGene.gtf"
-  protein_domains: "/data/ref_data/arriba/arriba_v2.3.0/database/protein_domains_hg19_hs37d5_GRCh37_v2.3.0.gff3"
+  cytobands: "/data/Twist_Solid/RNA/arriba/cytobands_hg19_hs37d5_GRCh37_v2.3.0.tsv"
+  gtf: "/data/Twist_Solid/RNA/hg19.refGene.gtf"
+  protein_domains: "/data/Twist_Solid/RNA/arriba/protein_domains_hg19_hs37d5_GRCh37_v2.3.0.gff3"
 
 add_multi_snv_in_codon:
   af_limit: 0.00
   artifact_limit: 10000
 
 annotate_cnv:
-  cnv_amp_genes: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/cnv_amp_genes.bed"
-  cnv_loh_genes: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/cnv_loh_uppsala_genes.bed"
-  # cnv_loh_genes: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/cnv_loh_genes.bed"
+  cnv_amp_genes: "/data/Twist_Solid/DNA/bed/cnv_amp_genes.bed"
+  cnv_loh_genes: "/data/Twist_Solid/DNA/bed/cnv_loh_genes.bed"
+  # cnv_loh_genes: "/data/Twist_Solid/DNA/bed/cnv_loh_genes.bed"
 
 bcbio_variation_recall_ensemble:
   container: "docker://hydragenetics/bcbio-vc:0.2.6"
@@ -50,30 +50,30 @@ bcbio_variation_recall_ensemble:
     - gatk_mutect2
 
 bcftools_filter_include_region:
-  exon: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/pool1_pool2.sort.merged.padded20.cnv200.hg19.split_fusion_genes.MUC6_31_rm.exon_only.reannotated.210608.bed"
+  exon: "/data/Twist_Solid/DNA/bed/pool1_pool2.sort.merged.padded20.cnv200.hg19.split_fusion_genes.MUC6_31_rm.exon_only.reannotated.210608.bed"
 
 bcftools_id_snps:
-  snps_bed: "/projects/wp1/nobackup/ngs/utveckling/Twist_RNA_DATA/bed/ID_SNPs.bed"
+  snps_bed: "/data/Twist_Solid/RNA/bed/ID_SNPs.bed"
 
 bwa_mem:
   container: "docker://hydragenetics/bwa_mem:0.7.17"
-  amb: "/data/ref_genomes/hg19/bwa/BWA_0.7.10_refseq/hg19.with.mt.amb"
-  ann: "/data/ref_genomes/hg19/bwa/BWA_0.7.10_refseq/hg19.with.mt.ann"
-  bwt: "/data/ref_genomes/hg19/bwa/BWA_0.7.10_refseq/hg19.with.mt.bwt"
-  pac: "/data/ref_genomes/hg19/bwa/BWA_0.7.10_refseq/hg19.with.mt.pac"
-  sa: "/data/ref_genomes/hg19/bwa/BWA_0.7.10_refseq/hg19.with.mt.sa"
+  amb: "/data/reference_genomes/hg19/BWA_0.7.10_refseq/hg19.with.mt.amb"
+  ann: "/data/reference_genomes/hg19/BWA_0.7.10_refseq/hg19.with.mt.ann"
+  bwt: "/data/reference_genomes/hg19/BWA_0.7.10_refseq/hg19.with.mt.bwt"
+  pac: "/data/reference_genomes/hg19/BWA_0.7.10_refseq/hg19.with.mt.pac"
+  sa: "/data/reference_genomes/hg19/BWA_0.7.10_refseq/hg19.with.mt.sa"
 
 bwa_mem_merge:
   extra: "-c -p"
 
 cnvkit_batch:
   container: "docker://hydragenetics/cnvkit:0.9.9"
-  normal_reference: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/PoN/cnvkit_nextseq_36.cnn"
+  normal_reference: "/data/Twist_Solid/DNA/PoN/cnvkit_nextseq_36.cnn"
   method: "hybrid"
 
 cnvkit_batch_hrd:
   container: "docker://hydragenetics/cnvkit:0.9.9"
-  normal_reference_hrd: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/PoN/cnvkit_nextseq_27_HRD.cnn"
+  normal_reference_hrd: "/data/Twist_Solid/DNA/PoN/cnvkit_nextseq_27_HRD.cnn"
   method: "hybrid"
 
 cnvkit_call:
@@ -93,7 +93,7 @@ cnv_tsv_report:
   del_1p19q_chr_arm_fraction: 0.3
 
 exon_skipping:
-  design_bed: "/projects/wp1/nobackup/ngs/utveckling/Twist_RNA_DATA/bed/Twist_RNA_Design5.annotated.bed"
+  design_bed: "/data/Twist_Solid/RNA/bed/Twist_RNA_Design5.annotated.bed"
 
 fastp_pe:
   container: "docker://hydragenetics/fastp:0.20.1"
@@ -112,7 +112,7 @@ filter_vcf:
 
 fusioncatcher:
   container: "docker://hydragenetics/fusioncatcher:1.33"
-  genome_path: "/data/ref_data/fusioncatcher/human_v102/human_v102/"
+  genome_path: "/data/Twist_Solid/RNA/Fusioncatcher/human_v102/"
 
 gatk_calculate_contamination:
   container: "docker://hydragenetics/gatk4:4.1.9.0"
@@ -122,22 +122,22 @@ gatk_call_copy_ratio_segments:
 
 gatk_collect_allelic_counts:
   container: "docker://hydragenetics/gatk4:4.1.9.0"
-  SNP_interval: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/gnomad_SNP_0.001_target.annotated.interval_list"
+  SNP_interval: "/data/Twist_Solid/DNA/bed/gnomad_SNP_0.001_target.annotated.interval_list"
 
 gatk_collect_read_counts:
   container: "docker://hydragenetics/gatk4:4.1.9.0"
 
 gatk_denoise_read_counts:
   container: "docker://hydragenetics/gatk4:4.1.9.0"
-  normal_reference: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/PoN/gatk_cnv_nextseq_36.hdf5"
+  normal_reference: "/data/Twist_Solid/DNA/PoN/gatk_cnv_nextseq_36.hdf5"
 
 gatk_model_segments:
   container: "docker://hydragenetics/gatk4:4.1.9.0"
 
 gatk_get_pileup_summaries:
   container: "docker://hydragenetics/gatk4:4.1.9.0"
-  sites: "/data/ref_genomes/GNOMAD/small_exac_common_3.hg19.vcf.gz"
-  variants: "/data/ref_genomes/GNOMAD/small_exac_common_3.hg19.vcf.gz"
+  sites: "/data/Twist_Solid/DNA/contamination/small_exac_common_3.hg19.vcf.gz"
+  variants: "/data/Twist_Solid/DNA/contamination/small_exac_common_3.hg19.vcf.gz"
 
 gatk_mutect2:
   container: "docker://hydragenetics/gatk4:4.1.9.0"
@@ -153,18 +153,18 @@ gatk_mutect2_merge_stats:
 
 gene_fuse:
   container: "docker://hydragenetics/genefuse:0.6.1"
-  genes: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/gene_fuse/GMS560_fusion_w_pool2.hg19.221109.csv"
-  fasta: "/data/ref_genomes/hg19/bwa/BWA_0.7.10_refseq/hg19.with.mt.fasta"
+  genes: "/data/Twist_Solid/DNA/genefuse/GMS560_fusion_w_pool2.hg19.221109.csv"
+  fasta: "/data/reference_genomes/hg19/BWA_0.7.10_refseq/hg19.with.mt.fasta"
 
 hotspot_annotation:
-  hotspots: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/Hotspots_combined_regions_nodups.csv"
+  hotspots: "/data/Twist_Solid/DNA/bed/Hotspots_combined_regions_nodups.csv"
   chr_translation_file: "config/hotspot_report.chr.translation.hg19"
 
 hotspot_info:
-  hotspot_mutations: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/Hotspots_combined_regions_nodups.csv"
+  hotspot_mutations: "/data/Twist_Solid/DNA/bed/Hotspots_combined_regions_nodups.csv"
 
 hotspot_report:
-  hotspot_mutations: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/Hotspots_combined_regions_nodups.csv"
+  hotspot_mutations: "/data/Twist_Solid/DNA/bed/Hotspots_combined_regions_nodups.csv"
   report_config: "config/hotspot_report.yaml"
   chr_translation_file: "config/hotspot_report.chr.translation.hg19"
   levels:
@@ -174,7 +174,7 @@ hotspot_report:
 
 manta_config_t:
   container: "docker://hydragenetics/manta:1.6.0"
-  extra: "--exome --callRegions /projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/pool1_pool2.sort.merged.padded20.cnv200.hg19.split_fusion_genes.210608.bed.gz"
+  extra: "--exome --callRegions /data/Twist_Solid/DNA/bed/pool1_pool2.sort.merged.padded20.cnv200.hg19.split_fusion_genes.210608.bed.gz"
 
 manta_run_workflow_t:
   container: "docker://hydragenetics/manta:1.6.0"
@@ -188,7 +188,7 @@ mosdepth_bed:
 
 msisensor_pro:
   container: "docker://hydragenetics/msisensor_pro:1.1.a"
-  PoN: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/PoN/Msisensor_pro_reference_nextseq_36.list_baseline"
+  PoN: "/data/Twist_Solid/DNA/PoN/Msisensor_pro_reference_nextseq_36.list_baseline"
 
 multiqc:
   container: "docker://hydragenetics/multiqc:1.11"
@@ -241,7 +241,7 @@ picard_mark_duplicates:
   container: "docker://hydragenetics/picard:2.25.0"
 
 report_fusions:
-  annotation_bed: "/projects/wp1/nobackup/ngs/utveckling/Twist_RNA_DATA/bed/Twist_RNA_fusionpartners.bed"
+  annotation_bed: "/data/Twist_Solid/RNA/bed/Twist_RNA_fusionpartners.bed"
   fusioncather_flag_low_support: 15
   fusioncather_low_support: 3
   fusioncather_low_support_fp_genes: 20
@@ -252,7 +252,7 @@ report_fusions:
   star_fusion_low_support_inframe: 6
 
 report_gene_fuse:
-  filter_fusions: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/gene_fuse/filter_fusions.csv"
+  filter_fusions: "/data/Twist_Solid/DNA/genefuse/filter_fusions.csv"
   min_unique_reads: 6
 
 samtools_merge_bam:
@@ -265,12 +265,12 @@ scarhrd:
 
 star:
   container: "docker://hydragenetics/star:2.7.10a"
-  genome_index: "/data/ref_data/star/v2.7.10a_hg19/"
-  extra: "--quantMode GeneCounts --sjdbGTFfile /data/ref_genomes/hg19/gtf/hg19.refGene.gtf --outSAMtype BAM SortedByCoordinate --chimSegmentMin 10 --chimOutType WithinBAM SoftClip --chimJunctionOverhangMin 10 --chimScoreMin 1 --chimScoreDropMax 30 --chimScoreJunctionNonGTAG 0 --chimScoreSeparation 1 --alignSJstitchMismatchNmax 5 -1 5 5 --chimSegmentReadGapMax 3"
+  genome_index: "/data/reference_genomes/star/v2.7.10a_ucsc_hg19/index"
+  extra: "--quantMode GeneCounts --sjdbGTFfile /data/Twist_Solid/RNA/hg19.refGene.gtf --outSAMtype BAM SortedByCoordinate --chimSegmentMin 10 --chimOutType WithinBAM SoftClip --chimJunctionOverhangMin 10 --chimScoreMin 1 --chimScoreDropMax 30 --chimScoreJunctionNonGTAG 0 --chimScoreSeparation 1 --alignSJstitchMismatchNmax 5 -1 5 5 --chimSegmentReadGapMax 3"
 
 star_fusion:
   container: "docker://hydragenetics/star-fusion:1.10.1"
-  genome_path: "/data/ref_data/star-fusion/GRCh37_gencode_v19_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/"
+  genome_path: "/data/Twist_Solid/RNA/STAR-Fusion/GRCh37_gencode_v19_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/"
   extra: "--examine_coding_effect"
 
 svdb_merge:
@@ -282,7 +282,7 @@ svdb_merge:
 
 svdb_query:
   container: "docker://hydragenetics/svdb:2.6.0"
-  db_string: "--db /projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/SVDB/all_TN_292_svdb_0.8_20220505.vcf --out_frq Twist_AF --out_occ Twist_OCC"
+  db_string: "--db /data/Twist_Solid/DNA/SVDB/all_TN_292_svdb_0.8_20220505.vcf --out_frq Twist_AF --out_occ Twist_OCC"
 
 tmb:
   filter_nr_observations: 1
@@ -303,7 +303,7 @@ vardict:
 
 vep:
   container: "docker://hydragenetics/vep:105"
-  vep_cache:  "/data/ref_genomes/VEP/"
+  vep_cache:  "/data/Twist_Solid/DNA/VEP/"
   mode: --offline --cache
   extra: " --assembly GRCh37 --check_existing --pick --sift b --polyphen b --ccds --uniprot --hgvs --symbol --numbers --domains --regulatory --canonical --protein --biotype --uniprot --tsl --appris --gene_phenotype --af --af_1kg --af_gnomad --max_af --pubmed --variant_class "
 
