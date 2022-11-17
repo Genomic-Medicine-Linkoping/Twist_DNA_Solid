@@ -9,3 +9,23 @@
 *.swp
 
 venv
+
+.cache/
+.fontconfig/
+.java/
+DATA/
+alignment/
+annotation/
+bam_dna/
+biomarker/
+cnv_sv/
+fusions/
+logs/
+prealignment/
+qc/
+results/
+snv_indels/
+
+samples.tsv
+units.tsv
+genefuse.json
