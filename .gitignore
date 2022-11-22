@@ -25,6 +25,7 @@ prealignment/
 qc/
 results/
 snv_indels/
+bam_rna/
 
 samples.tsv
 units.tsv

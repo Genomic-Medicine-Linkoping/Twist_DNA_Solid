@@ -7,8 +7,8 @@ default_container: "docker://hydragenetics/common:0.1.9"
 trimmer_software: "fastp_pe"
 
 reference:
-  background:  "/mnt/WD1/ref/Twist/PoN/26_normal_samples/background_panel_26_normal.tsv"
-  artifacts: "/mnt/WD1/ref/Twist/PoN/26_normal_samples/artifact_panel_26_normal.tsv"
+  background:  "/mnt/WD1/ref/Twist/hydra_files/Background/background_panel_nextseq_noUmea_27_dp500_af015.tsv"
+  artifacts: "/mnt/WD1/ref/Twist/hydra_files/Artifact/artifact_panel_nextseq_36.tsv"
   fasta: "/mnt/WD1/ref/Uppsala/Data/BWA_0.7.10_refseq/hg19.with.mt.fasta"
   dict: "/mnt/WD1/ref/Uppsala/Data/BWA_0.7.10_refseq/hg19.with.mt.dict"
   amb: "/mnt/WD1/ref/Uppsala/Data/BWA_0.7.10_refseq/hg19.with.mt.amb"
@@ -46,7 +46,6 @@ add_multi_snv_in_codon:
 annotate_cnv:
   cnv_amp_genes: "/mnt/WD1/ref/Twist/hydra_files/bed/cnv_amp_genes.bed"
   cnv_loh_genes: "/mnt/WD1/ref/Twist/hydra_files/bed/cnv_loh_genes.bed"
-  # cnv_loh_genes: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/cnv_loh_genes.bed"
 
 bcbio_variation_recall_ensemble:
   container: "docker://hydragenetics/bcbio-vc:0.2.6"
@@ -274,8 +273,6 @@ scarhrd:
 
 star:
   container: "docker://hydragenetics/star:2.7.10a"
-  # genome_index: "/data/ref_data/star/v2.7.10a_hg19/"
-  # genome_index: "/mnt/WD1/ref/Twist/Twist_RNA/STAR_index_GRCh37_RefSeq_hg19"
   genome_index: /mnt/WD1/ref/Uppsala/Data/BWA_0.7.10_refseq/star_index
   extra: "--quantMode GeneCounts --sjdbGTFfile /mnt/WD1/ref/Twist/hydra_files/rna/hg19.refGene.gtf --outSAMtype BAM SortedByCoordinate --chimSegmentMin 10 --chimOutType WithinBAM SoftClip --chimJunctionOverhangMin 10 --chimScoreMin 1 --chimScoreDropMax 30 --chimScoreJunctionNonGTAG 0 --chimScoreSeparation 1 --alignSJstitchMismatchNmax 5 -1 5 5 --chimSegmentReadGapMax 3"
 
