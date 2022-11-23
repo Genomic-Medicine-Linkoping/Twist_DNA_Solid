@@ -25,7 +25,7 @@ STAR --runThreadN 8 --runMode genomeGenerate --genomeDir star_index --genomeFast
 
 Run:
 ```
-snakemake --cores 48 --use-singularity --singularity-args "--bind /mnt/WD1/ref" -s workflow/Snakefile --configfile config/config_LiU.yaml
-snakemake --cores 48 --use-singularity --singularity-args "--bind /mnt/WD1/ref" -s workflow/Snakefile --configfile config/config_LiU.yaml --forceall --rerun-incomplete
+
+snakemake --cores 64 --use-singularity --singularity-args "--bind /mnt/WD1/ref" -s workflow/Snakefile --configfile config/config_liu.yaml --forceall --rerun-incomplete
 ```
 

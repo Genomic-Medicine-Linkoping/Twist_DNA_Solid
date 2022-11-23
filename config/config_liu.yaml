@@ -1,6 +1,9 @@
 resources: "config/resources.yaml"
 samples: "samples.tsv"
 units: "units.tsv"
+
+#hydra_local_path: "PATH_TO_REPO"
+
 output: "config/output_list.json"
 default_container: "docker://hydragenetics/common:0.1.9"
 
@@ -10,17 +13,12 @@ reference:
   background:  "/mnt/WD1/ref/Twist/hydra_files/Background/background_panel_nextseq_noUmea_27_dp500_af015.tsv"
   artifacts: "/mnt/WD1/ref/Twist/hydra_files/Artifact/artifact_panel_nextseq_36.tsv"
   fasta: "/mnt/WD1/ref/Uppsala/Data/BWA_0.7.10_refseq/hg19.with.mt.fasta"
+  fasta_rna: "/mnt/WD1/ref/Twist/Twist_RNA/GRCh37_gencode_v19_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/ref_genome.fa"
   dict: "/mnt/WD1/ref/Uppsala/Data/BWA_0.7.10_refseq/hg19.with.mt.dict"
-  amb: "/mnt/WD1/ref/Uppsala/Data/BWA_0.7.10_refseq/hg19.with.mt.amb"
-  ann: "/mnt/WD1/ref/Uppsala/Data/BWA_0.7.10_refseq/hg19.with.mt.ann"
-  bwt: "/mnt/WD1/ref/Uppsala/Data/BWA_0.7.10_refseq/hg19.with.mt.bwt"
   fai: "/mnt/WD1/ref/Uppsala/Data/BWA_0.7.10_refseq/hg19.with.mt.fai"
-  pac: "/mnt/WD1/ref/Uppsala/Data/BWA_0.7.10_refseq/hg19.with.mt.pac"
-  sa: "/mnt/WD1/ref/Uppsala/Data/BWA_0.7.10_refseq/hg19.with.mt.sa"
   design_bed: "/mnt/WD1/ref/Twist/hydra_files/bed/pool1_pool2.sort.merged.padded20.cnv200.hg19.split_fusion_genes.reannotated.210608.bed"
   design_intervals: "/mnt/WD1/ref/Twist/hydra_files/bed/pool1_pool2.sort.merged.padded20.cnv200.hg19.split_fusion_genes.MUC6_31_rm.exon_only.reannotated.210608.interval_list"
   design_intervals_gatk_cnv: "/mnt/WD1/ref/Twist/hydra_files/bed/pool1_pool2_nochr_3c.sort.merged.padded20.cnv400.hg19.210311.met.annotated.bed.preprocessed.interval_list"
-  fasta_rna: "/mnt/WD1/ref/Twist/Twist_RNA/GRCh37_gencode_v19_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/ref_genome.fa"
   design_bed_rna: "/mnt/WD1/ref/Twist/hydra_files/rna/bed/Twist_RNA_Design5.annotated.bed"
   design_intervals_rna: "/mnt/WD1/ref/Twist/hydra_files/rna/bed/Twist_RNA_Design5.annotated.interval_list"
   skip_chrs:
@@ -46,6 +44,7 @@ add_multi_snv_in_codon:
 annotate_cnv:
   cnv_amp_genes: "/mnt/WD1/ref/Twist/hydra_files/bed/cnv_amp_genes.bed"
   cnv_loh_genes: "/mnt/WD1/ref/Twist/hydra_files/bed/cnv_loh_genes.bed"
+  # cnv_loh_genes: "/projects/wp1/nobackup/ngs/utveckling/Twist_DNA_DATA/bed/cnv_loh_genes.bed"
 
 bcbio_variation_recall_ensemble:
   container: "docker://hydragenetics/bcbio-vc:0.2.6"
